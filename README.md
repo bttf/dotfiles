@@ -1,3 +1,3 @@
 dotfiles
 ========
-Mainly consisting of my VIM Pathogen setup.
+Mainly consisting of VIM configuration and submodules.
