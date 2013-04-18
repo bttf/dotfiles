@@ -1,3 +1,12 @@
 [submodule "vimfiles/bundle/nerdtree"]
 	path = vimfiles/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vimfiles/bundle/vim-ruby"]
+	path = vimfiles/bundle/vim-ruby
+	url = https://github.com/vim-ruby/vim-ruby.git
+[submodule "vimfiles/bundle/VimClojure"]
+	path = vimfiles/bundle/VimClojure
+	url = https://github.com/vim-scripts/VimClojure.git
+[submodule "vimfiles/bundle/html5"]
+	path = vimfiles/bundle/html5
+	url = https://github.com/othree/html5.vim.git
