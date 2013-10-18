@@ -13,3 +13,18 @@
 [submodule "vimfiles/bundle/vim-jade"]
 	path = vimfiles/bundle/vim-jade
 	url = https://github.com/digitaltoad/vim-jade.git
+[submodule "vimfiles/bundle/vim-puppet"]
+	path = vimfiles/bundle/vim-puppet
+	url = https://github.com/rodjek/vim-puppet.git
+[submodule "vimfiles/bundle/tabular"]
+	path = vimfiles/bundle/tabular
+	url = https://github.com/godlygeek/tabular.git
+[submodule "vimfiles/bundle/syntastic"]
+	path = vimfiles/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "vimfiles/bundle/vim-ps1"]
+	path = vimfiles/bundle/vim-ps1
+	url = https://github.com/PProvost/vim-ps1.git
+[submodule "vimfiles/bundle/xmledit"]
+	path = vimfiles/bundle/xmledit
+	url = https://github.com/sukima/xmledit.git
