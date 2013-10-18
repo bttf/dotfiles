@@ -1,3 +1,3 @@
 dotfiles
 ========
-Mainly consisting of VIM configuration and submodules.
+VIM configuration and submodules.
