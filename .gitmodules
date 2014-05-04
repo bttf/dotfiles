@@ -10,9 +10,6 @@
 [submodule "vimfiles/bundle/html5"]
 	path = vimfiles/bundle/html5
 	url = https://github.com/othree/html5.vim.git
-[submodule "vimfiles/bundle/vim-jade"]
-	path = vimfiles/bundle/vim-jade
-	url = https://github.com/digitaltoad/vim-jade.git
 [submodule "vimfiles/bundle/vim-puppet"]
 	path = vimfiles/bundle/vim-puppet
 	url = https://github.com/rodjek/vim-puppet.git
