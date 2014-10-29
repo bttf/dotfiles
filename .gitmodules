@@ -40,3 +40,6 @@
 [submodule "vimfiles/bundle/fugitive"]
 	path = vimfiles/bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vimfiles/bundle/vim-jade"]
+	path = vimfiles/bundle/vim-jade
+	url = https://github.com/digitaltoad/vim-jade.git
