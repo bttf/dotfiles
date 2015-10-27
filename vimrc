@@ -22,6 +22,7 @@ Plugin 'bling/vim-airline'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/syntastic'
 
 call vundle#end()  
 " End Vundle Config
@@ -42,3 +43,13 @@ set backupdir=~/.vim/backup//
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 set wildignore+=*/node_modules/*,*/bower_components/*
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
