@@ -22,22 +22,27 @@ Plugin 'bling/vim-airline'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-surround'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'heavenshell/vim-jsdoc'
 Plugin 'scrooloose/syntastic'
 
-call vundle#end()  
+call vundle#end()
 " End Vundle Config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 syntax on
+colorscheme desert
 filetype plugin indent on
 set nu
-colorscheme desert
 set expandtab
 set tabstop=2 shiftwidth=2 softtabstop=2
 set autoindent
 
 set directory=~/.vim/_tmp//
 set backupdir=~/.vim/backup//
+set undodir=~/.vim/_tmp//
+set undofile
 
 " ctrlP config
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -49,7 +54,13 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_html_checkers=['']
+
+" custom commands
+map <leader>n :NERDTree<cr>
+map <leader>f :NERDTreeFind<cr>
