@@ -32,7 +32,7 @@ call vundle#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 syntax on
-colorscheme desert
+colorscheme Tomorrow-Night-Bright
 filetype plugin indent on
 set nu
 set expandtab
@@ -41,7 +41,7 @@ set autoindent
 
 set directory=~/.vim/_tmp//
 set backupdir=~/.vim/backup//
-set undodir=~/.vim/_tmp//
+set undodir=~/.vim/_tmp
 set undofile
 
 " ctrlP config
@@ -62,5 +62,5 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_html_checkers=['']
 
 " custom commands
-map <leader>n :NERDTree<cr>
-map <leader>f :NERDTreeFind<cr>
+nnoremap <leader>t :NERDTree<cr>
+nnoremap <leader>f :NERDTreeFind<cr>
