@@ -22,10 +22,12 @@ Plugin 'bling/vim-airline'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-surround'
-Plugin 'Valloric/YouCompleteMe'
+" Better do this manually
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'scrooloose/syntastic'
+Plugin 'chriskempson/vim-tomorrow-theme'
 
 call vundle#end()
 " End Vundle Config
