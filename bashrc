@@ -1,3 +1,5 @@
+source ~/.nvm/nvm.sh
+
 alias tls="tmux list-session"
 alias t="tugboat"
 alias ta="tmux a -t"
