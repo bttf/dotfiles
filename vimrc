@@ -47,6 +47,9 @@ set backupdir=~/.vim/backup//
 set undodir=~/.vim/_tmp
 set undofile
 
+" fix airline issues
+set laststatus=2
+
 " ctrlP config
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
@@ -67,3 +70,6 @@ let g:syntastic_html_checkers=['']
 " custom commands
 nnoremap <leader>t :NERDTree<cr>
 nnoremap <leader>f :NERDTreeFind<cr>
+nnoremap <leader>p :set paste!<cr>
+
+set relativenumber
