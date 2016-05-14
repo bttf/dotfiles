@@ -72,5 +72,6 @@ let g:syntastic_html_checkers=['']
 nnoremap <leader>t :NERDTree<cr>
 nnoremap <leader>f :NERDTreeFind<cr>
 nnoremap <leader>p :set paste!<cr>
+nnoremap <leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 set relativenumber
