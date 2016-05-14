@@ -14,3 +14,6 @@ mkdir -p ~/.vim/{_tmp,backup}
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ln -s $DIR/vimrc ~/.vimrc
 vim +PluginInstall +qall
+
+# misc
+sudo apt-get install silversearcher-ag
