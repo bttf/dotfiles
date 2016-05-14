@@ -35,7 +35,7 @@ call vundle#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 syntax on
-colorscheme Tomorrow-Night-Bright
+colorscheme desert
 filetype plugin indent on
 set nu
 set expandtab
