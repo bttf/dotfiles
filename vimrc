@@ -29,6 +29,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'scrooloose/syntastic'
 Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'rodjek/vim-puppet'
 
 call vundle#end()
 " End Vundle Config

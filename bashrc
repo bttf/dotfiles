@@ -16,3 +16,4 @@ alias gpretty="git log --graph --decorate --oneline \$(git rev-list -g —all)"
 alias nombom='npm cache clear && bower cache clean && rm -rf node_modules bower_components && npm install && bower install'
 alias git-quiet-pull='git fetch; git stash; git rebase; git stash pop'
 alias gqp='git-quiet-pull'
+alias gdc='git diff --cached'
