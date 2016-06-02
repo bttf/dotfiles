@@ -30,6 +30,8 @@ Plugin 'heavenshell/vim-jsdoc'
 Plugin 'scrooloose/syntastic'
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'rodjek/vim-puppet'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'Raimondi/delimitMate'
 
 call vundle#end()
 " End Vundle Config
