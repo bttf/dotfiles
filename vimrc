@@ -70,6 +70,10 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_html_checkers=['']
 
+" nerdcommenter
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
+
 " custom commands
 nnoremap <leader>t :NERDTree<cr>
 nnoremap <leader>f :NERDTreeFind<cr>
