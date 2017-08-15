@@ -2,8 +2,11 @@
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 # nvm
-git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
-. ~/.nvm/nvm.sh
+export NVM_DIR="$HOME/.nvm" && (
+  git clone https://github.com/creationix/nvm.git "$NVM_DIR"
+  cd "$NVM_DIR"
+  git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" origin`
+) && . "$NVM_DIR/nvm.sh"
 
 # bashrc
 cat $DIR/bashrc >> ~/.bashrc
@@ -15,5 +18,14 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ln -s $DIR/vimrc ~/.vimrc
 vim +PluginInstall +qall
 
-# misc
-sudo apt-get install silversearcher-ag
+# silversearcher
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  sudo apt-get install silversearcher-ag
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  brew install the_silver_searcher
+fi
+
+# git-aware-prompt
+mkdir ~/.bash
+cd ~/.bash
+git clone git://github.com/jimeh/git-aware-prompt.git
