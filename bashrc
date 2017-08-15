@@ -1,5 +1,12 @@
-source ~/.nvm/nvm.sh
+# git-aware-prompt
+export GITAWAREPROMPT=~/.bash/git-aware-prompt
+source "${GITAWAREPROMPT}/main.sh"
 
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+# alias city
 alias tls="tmux list-session"
 alias t="tugboat"
 alias ta="tmux a -t"
