@@ -39,7 +39,6 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'Quramy/vim-js-pretty-template'
 Plugin 'jason0x43/vim-js-indent'
 Plugin 'chriskempson/tomorrow-theme'
-Plugin 'rking/ag.vim'
 
 call vundle#end()
 " End Vundle Config
@@ -102,6 +101,3 @@ set cursorline
 
 " no need to redraw during macros
 set lazyredraw
-
-" open ag.vim
-nnoremap <leader>a :Ag
