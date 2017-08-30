@@ -29,3 +29,10 @@ fi
 mkdir ~/.bash
 cd ~/.bash
 git clone git://github.com/jimeh/git-aware-prompt.git
+
+# tmux
+if [ -f ~/.tmux.conf ]; then
+  cat $DIR/tmux.conf >> ~/.tmux.conf
+else
+  cp $DIR/tmux.conf ~/.tmux.conf
+fi

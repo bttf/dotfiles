@@ -26,3 +26,8 @@ alias git-quiet-pull='git fetch; git stash; git rebase; git stash pop'
 alias gqp='git-quiet-pull'
 alias gdc='git diff --cached'
 alias br='git rev-parse --abbrev-ref HEAD'
+alias ll='ls -l'
+alias l='less'
+
+# tmux + vim
+alias tmux="TERM=screen-256color-bce tmux"
