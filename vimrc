@@ -24,6 +24,7 @@ Plugin 'bling/vim-airline'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-surround'
+Plugin 'Quramy/tsuquyomi'
 " Better do this manually
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'altercation/vim-colors-solarized'
@@ -33,13 +34,18 @@ Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'rodjek/vim-puppet'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'Raimondi/delimitMate'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Quramy/vim-js-pretty-template'
+Plugin 'jason0x43/vim-js-indent'
+Plugin 'chriskempson/tomorrow-theme'
 
 call vundle#end()
 " End Vundle Config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 syntax on
-colorscheme desert
+colorscheme Tomorrow-Night
 filetype plugin indent on
 set nu
 set expandtab
@@ -82,3 +88,13 @@ nnoremap <leader>p :set paste!<cr>
 nnoremap <leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 set relativenumber
+
+" wildmenu
+set wildmenu
+set wildmode=full
+
+" automatically equalize splits when Vim is resized
+autocmd VimResized * wincmd =
+
+" highlight current line
+set cursorline
