@@ -11,35 +11,32 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'StanAngeloff/php.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'bling/vim-airline'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-surround'
 Plugin 'Quramy/tsuquyomi'
-" Better do this manually
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'heavenshell/vim-jsdoc'
-Plugin 'scrooloose/syntastic'
 Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'rodjek/vim-puppet'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'Raimondi/delimitMate'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'Quramy/vim-js-pretty-template'
-Plugin 'jason0x43/vim-js-indent'
 Plugin 'chriskempson/tomorrow-theme'
-
+Plugin 'jparise/vim-graphql'
+Plugin 'w0rp/ale'
+Plugin 'mxw/vim-jsx'
+Plugin 'elzr/vim-json'
 call vundle#end()
 " End Vundle Config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -66,17 +63,6 @@ set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 set wildignore+=*/node_modules/*,*/bower_components/*
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_html_checkers=['']
-
 " nerdcommenter
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
@@ -101,3 +87,13 @@ set cursorline
 
 " no need to redraw during macros
 set lazyredraw
+
+" vim-jsx
+let g:jsx_ext_required = 0
+
+" ale
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+let g:ale_linters = {
+\ 'html': [],
+\}
