@@ -37,6 +37,7 @@ Plugin 'jparise/vim-graphql'
 Plugin 'w0rp/ale'
 Plugin 'mxw/vim-jsx'
 Plugin 'elzr/vim-json'
+Plugin 'ianks/vim-tsx'
 call vundle#end()
 " End Vundle Config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
