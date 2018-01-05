@@ -28,4 +28,4 @@ alias gdc='git diff --cached'
 alias br='git rev-parse --abbrev-ref HEAD'
 alias ll='ls -l'
 alias l='less'
-alias paste='curl -F 'f:1=<-' ix.io'
+alias paste="curl -F 'f:1=<-' ix.io"
