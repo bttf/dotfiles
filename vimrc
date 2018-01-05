@@ -42,7 +42,7 @@ call vundle#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 syntax on
-colorscheme Tomorrow-Night
+colorscheme desert
 filetype plugin indent on
 set nu
 set expandtab
