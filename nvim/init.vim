@@ -1,43 +1,40 @@
-" vundle
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible
-filetype off
-set colorcolumn=80
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'vim-scripts/matchit.zip'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'godlygeek/tabular'
-Plugin 'bling/vim-airline'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'tpope/vim-surround'
-Plugin 'Quramy/tsuquyomi'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'heavenshell/vim-jsdoc'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'Raimondi/delimitMate'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'Quramy/vim-js-pretty-template'
-Plugin 'chriskempson/tomorrow-theme'
-Plugin 'jparise/vim-graphql'
-Plugin 'w0rp/ale'
-Plugin 'mxw/vim-jsx'
-Plugin 'elzr/vim-json'
-Plugin 'ianks/vim-tsx'
-Plugin 'fatih/vim-go'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'grvcoelho/vim-javascript-snippets'
-call vundle#end()
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'VundleVim/Vundle.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mattn/emmet-vim'
+Plug 'vim-scripts/matchit.zip'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'godlygeek/tabular'
+Plug 'bling/vim-airline'
+Plug 'pangloss/vim-javascript'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'tpope/vim-surround'
+Plug 'Quramy/tsuquyomi'
+Plug 'altercation/vim-colors-solarized'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'elixir-lang/vim-elixir'
+Plug 'Raimondi/delimitMate'
+Plug 'Shougo/vimproc.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'chriskempson/tomorrow-theme'
+Plug 'jparise/vim-graphql'
+Plug 'w0rp/ale'
+Plug 'mxw/vim-jsx'
+Plug 'elzr/vim-json'
+Plug 'ianks/vim-tsx'
+Plug 'fatih/vim-go'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'grvcoelho/vim-javascript-snippets'
+Plug 'roxma/nvim-completion-manager'
+Plug 'autozimu/LanguageClient-neovim', {
+  \ 'branch': 'next',
+  \ 'do': 'bash install.sh',
+  \ }
+call plug#end()
 
 syntax on
 colorscheme desert
@@ -105,9 +102,8 @@ let g:jsx_ext_required = 0
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_linters = {
-\ 'jsx': ['eslint'],
-\ 'html': [],
-\}
+  \   'html': [],
+  \ }
 
 " fix highlight colors
 :hi Error ctermfg=0
@@ -118,3 +114,16 @@ let g:user_emmet_settings = {
 \      'extends' : 'jsx',
 \  },
 \}
+
+" lsp plugin
+let $LANGUAGECLIENT_DEBUG=1
+let g:LanguageClient_loggingLevel='DEBUG'
+let g:LanguageClient_serverCommands = {
+\ 'javascript.jsx': ['flow-language-server', '--stdio'],
+\ }
+let g:LanguageClient_autoStart=1
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+
+" nvim-completion-manager
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
