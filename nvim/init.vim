@@ -44,9 +44,9 @@ set expandtab
 set tabstop=2 shiftwidth=2 softtabstop=2
 set autoindent
 
-set directory=~/.vim/_tmp//
-set backupdir=~/.vim/backup//
-set undodir=~/.vim/_tmp
+set directory=~/.local/share/nvim/_tmp//
+set backupdir=~/.local/share/nvim/backup//
+set undodir=~/.local/share/nvim/_tmp
 set undofile
 
 " fix airline issues
