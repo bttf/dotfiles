@@ -49,7 +49,7 @@ mkdir -p $HOME/.config/nvim
 linkup $DIR/nvim $HOME/.local/share/nvim
 linkup $DIR/nvim/init.vim $HOME/.config/nvim/init.vim
 # install plug
-if [ ! -f $DIR/nvim/autoload/plug.vim ]; then
+if [ ! -f $DIR/nvim/site/autoload/plug.vim ]; then
   curl -fLo $DIR/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 # Install nvim plugins
@@ -195,7 +195,8 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 echo ""
 echo "Setting a blazingly fast keyboard repeat rate"
-defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write NSGlobalDomain InitialKeyRepeat -int 25
+defaults write NSGlobalDomain KeyRepeat -int 3
 
 echo ""
 echo "Setting trackpad & mouse speed to a reasonable number"
