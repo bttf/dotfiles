@@ -56,12 +56,6 @@ fi
 nvim +PlugInstall +qall
 
 # tmux
-if [ -f ~/tmux/.tmux.conf ]; then
-  cat $DIR/tmux/tmux.conf >> ~/.tmux.conf
-else
-  cp $DIR/tmux/tmux.conf ~/.tmux.conf
-fi
-# Link tmux
 linkup $DIR/tmux/tmux.conf $HOME/.tmux.conf
 
 # Cleanup brew
