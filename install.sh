@@ -1,4 +1,6 @@
 #!/bin/bash
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
 linkup() {
   if [ ! -h $2 ]; then
     ln -sn $1 $2
@@ -17,11 +19,13 @@ fi
 echo "Updating homebrew..."
 brew update 1>/dev/null
 
-# install
+# brew install
 brew bundle
 
 # Install Oh My ZSH
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+chsh -s /bin/zsh
 
 # Override defaut OSX bins
 if ! grep -q $(brew --prefix coreutils) "$HOME/.zshrc"; then
@@ -33,30 +37,32 @@ export NVM_DIR="$HOME/.nvm" && (
   git clone https://github.com/creationix/nvm.git "$NVM_DIR"
   cd "$NVM_DIR"
   git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" origin`
-) && . "$NVM_DIR/nvm.sh"
+)
 
 # zshrc
-cat $PWD/bashrc >> ~/.zshrc
+cat $DIR/bashrc >> ~/.zshrc
 source ~/.zshrc
 
 # nvim
-linkup $PWD/nvim/ $HOME/.local/share/nvim
-linkup $PWD/nvim/init.vim $HOME/.config/nvim/init.vim
+mkdir -p $HOME/.local/share
+mkdir -p $HOME/.config/nvim
+linkup $DIR/nvim $HOME/.local/share/nvim
+linkup $DIR/nvim/init.vim $HOME/.config/nvim/init.vim
 # install plug
-if [ ! -f $PWD/nvim/autoload/plug.vim ]; then
-  curl -fLo $PWD/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if [ ! -f $DIR/nvim/autoload/plug.vim ]; then
+  curl -fLo $DIR/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 # Install nvim plugins
 nvim +PlugInstall +qall
 
 # tmux
 if [ -f ~/tmux/.tmux.conf ]; then
-  cat $PWD/tmux/tmux.conf >> ~/.tmux.conf
+  cat $DIR/tmux/tmux.conf >> ~/.tmux.conf
 else
-  cp $PWD/tmux/tmux.conf ~/.tmux.conf
+  cp $DIR/tmux/tmux.conf ~/.tmux.conf
 fi
 # Link tmux
-linkup $PWD/tmux/tmux.conf $HOME/.tmux.conf
+linkup $DIR/tmux/tmux.conf $HOME/.tmux.conf
 
 # Cleanup brew
 echo "Cleaning up brew..."

@@ -66,8 +66,6 @@ let g:NERDDefaultAlign = 'left'
 let mapleader='-'
 let maplocalleader='\\'
 inoremap jk <esc>
-" weening off esc key
-inoremap <esc> <nop>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>t :NERDTree<cr>
 nnoremap <leader>f :NERDTreeFind<cr>
