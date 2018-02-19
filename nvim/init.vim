@@ -114,8 +114,8 @@ let g:user_emmet_settings = {
 \}
 
 " lsp plugin
-let $LANGUAGECLIENT_DEBUG=1
-let g:LanguageClient_loggingLevel='DEBUG'
+" let $LANGUAGECLIENT_DEBUG=1
+" let g:LanguageClient_loggingLevel='DEBUG'
 let g:LanguageClient_serverCommands = {
 \ 'javascript.jsx': ['flow-language-server', '--stdio'],
 \ }
