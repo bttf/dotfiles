@@ -57,6 +57,9 @@ nvim +PlugInstall +qall
 
 # tmux
 linkup $DIR/tmux/tmux.conf $HOME/.tmux.conf
+tpm
+mkdir -p $HOME/.tmux/plugins
+git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 
 # Cleanup brew
 echo "Cleaning up brew..."
