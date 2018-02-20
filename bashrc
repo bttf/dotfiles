@@ -2,6 +2,8 @@
 # ZSH_THEME="eastwood"
 # ZSH_THEME="jtriley"
 # ZSH_THEME="nanotech"
+# ZSH_THEME="lambda"
+# ZHS_THEME="philips"
 ZSH_THEME="wezm+"
 
 # nvm

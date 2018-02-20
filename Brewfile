@@ -12,6 +12,7 @@ brew "the_silver_searcher"
 brew "tmux"
 brew "zsh"
 brew "zsh-completions"
+brew "watchman"
 brew "wget"
 
 tap "neovim/neovim"
