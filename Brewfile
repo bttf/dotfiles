@@ -13,6 +13,7 @@ brew "tmux"
 brew "zsh"
 brew "zsh-completions"
 brew "wget"
+brew "yarn", args: ["without-node"]
 
 tap "neovim/neovim"
 brew "neovim", args: ["HEAD"]
