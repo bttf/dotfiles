@@ -8,6 +8,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 
 Plug 'w0rp/ale'
+Plug 'mileszs/ack.vim'
 Plug 'vim-scripts/matchit.zip'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
@@ -15,7 +16,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'mattn/emmet-vim'
 
 Plug 'altercation/vim-colors-solarized'
-Plug 'chriskempson/tomorrow-theme'
+Plug 'chriskempson/base16-vim'
 
 Plug 'pangloss/vim-javascript'
 Plug 'mustache/vim-mustache-handlebars'
@@ -44,7 +45,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 call plug#end()
 
 syntax on
-colorscheme desert
+colorscheme base16-default-dark
 filetype plugin indent on
 set nu
 set expandtab
@@ -82,6 +83,10 @@ nnoremap <leader><space> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR
 nnoremap <leader>ev :vsp $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 imap <C-y>- <Plug>snipMateTrigger
+nnoremap <leader>e :tabn<cr>
+nnoremap <leader>E :tabp<cr>
+nnoremap <leader>> 20<C-w>><cr>
+nnoremap <leader>< 20<C-w><<cr>
 
 set relativenumber
 
@@ -133,3 +138,17 @@ nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 " nvim-completion-manager
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" ack.vim config to use ag
+let g:ackprg = 'ag --vimgrep --smart-case'
+cnoreabbrev ag Ack
+cnoreabbrev aG Ack
+cnoreabbrev Ag Ack
+cnoreabbrev AG Ack
+
+" u no me!
+augroup javascript_folding
+  au!
+  au FileType javascript setlocal foldmethod=syntax
+  au FileType javascript normal zR
+augroup END
