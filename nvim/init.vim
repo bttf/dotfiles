@@ -1,34 +1,41 @@
+" muh plugins
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'VundleVim/Vundle.vim'
+
+Plug 'bling/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mattn/emmet-vim'
-Plug 'vim-scripts/matchit.zip'
+
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+
+Plug 'w0rp/ale'
+Plug 'vim-scripts/matchit.zip'
 Plug 'godlygeek/tabular'
-Plug 'bling/vim-airline'
+Plug 'tpope/vim-surround'
+Plug 'Raimondi/delimitMate'
+Plug 'mattn/emmet-vim'
+
+Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/tomorrow-theme'
+
 Plug 'pangloss/vim-javascript'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'tpope/vim-surround'
-Plug 'Quramy/tsuquyomi'
-Plug 'altercation/vim-colors-solarized'
 Plug 'heavenshell/vim-jsdoc'
-Plug 'elixir-lang/vim-elixir'
-Plug 'Raimondi/delimitMate'
-Plug 'Shougo/vimproc.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/vim-js-pretty-template'
-Plug 'chriskempson/tomorrow-theme'
-Plug 'jparise/vim-graphql'
-Plug 'w0rp/ale'
 Plug 'mxw/vim-jsx'
+Plug 'Quramy/vim-js-pretty-template'
 Plug 'elzr/vim-json'
-Plug 'ianks/vim-tsx'
+
+Plug 'elixir-lang/vim-elixir'
+
+Plug 'jparise/vim-graphql'
+
 Plug 'fatih/vim-go'
+
+" snipmate and its dependencies
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'grvcoelho/vim-javascript-snippets'
+
 Plug 'roxma/nvim-completion-manager'
 Plug 'autozimu/LanguageClient-neovim', {
   \ 'branch': 'next',
@@ -44,9 +51,9 @@ set expandtab
 set tabstop=2 shiftwidth=2 softtabstop=2
 set autoindent
 
-set directory=~/.vim/_tmp//
-set backupdir=~/.vim/backup//
-set undodir=~/.vim/_tmp
+set directory=~/.local/share/nvim/_tmp//
+set backupdir=~/.local/share/nvim/backup//
+set undodir=~/.local/share/nvim/_tmp
 set undofile
 
 " fix airline issues
@@ -66,13 +73,12 @@ let g:NERDDefaultAlign = 'left'
 let mapleader='-'
 let maplocalleader='\\'
 inoremap jk <esc>
-" weening off esc key
-inoremap <esc> <nop>
 nnoremap <leader>q :q<cr>
+nnoremap <leader>w :w<cr>
 nnoremap <leader>t :NERDTree<cr>
 nnoremap <leader>f :NERDTreeFind<cr>
 nnoremap <leader>p :set paste!<cr>
-nnoremap <leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+nnoremap <leader><space> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 nnoremap <leader>ev :vsp $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 imap <C-y>- <Plug>snipMateTrigger
@@ -116,8 +122,8 @@ let g:user_emmet_settings = {
 \}
 
 " lsp plugin
-let $LANGUAGECLIENT_DEBUG=1
-let g:LanguageClient_loggingLevel='DEBUG'
+" let $LANGUAGECLIENT_DEBUG=1
+" let g:LanguageClient_loggingLevel='DEBUG'
 let g:LanguageClient_serverCommands = {
 \ 'javascript.jsx': ['flow-language-server', '--stdio'],
 \ }

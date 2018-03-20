@@ -1,13 +1,15 @@
-# git-aware-prompt
-export GITAWAREPROMPT=~/.bash/git-aware-prompt
-source "${GITAWAREPROMPT}/main.sh"
-export PS1="\u@\h \W \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
+# ZSH_THEME="random"
+# ZSH_THEME="eastwood"
+# ZSH_THEME="jtriley"
+# ZSH_THEME="nanotech"
+ZSH_THEME="wezm+"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # alias city
+eval "$(hub alias -s)"
 alias tls="tmux list-session"
 alias t="tugboat"
 alias ta="tmux a -t"
@@ -26,7 +28,9 @@ alias git-quiet-pull='git fetch; git stash; git rebase; git stash pop'
 alias gqp='git-quiet-pull'
 alias gdc='git diff --cached'
 alias br='git rev-parse --abbrev-ref HEAD'
+alias ls='ls --color=auto'
 alias ll='ls -l'
 alias l='less'
 alias vim='nvim'
 alias pbin="curl -F 'f:1=<-' ix.io"
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH

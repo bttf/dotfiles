@@ -1,0 +1,6 @@
+nvim/site/autoload/plug.vim
+nvim/_tmp/*
+nvim/bundle/*
+nvim/plugged/*
+nvim/.netrwhist
+nvim/shada
