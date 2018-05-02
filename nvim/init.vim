@@ -120,6 +120,9 @@ let g:ale_linters = {
 :hi Error ctermfg=0
 :hi ErrorMsg ctermfg=0
 
+" vim-javascript
+let g:javascript_plugin_flow = 1
+
 let g:user_emmet_settings = {
 \  'javascript.jsx' : {
 \      'extends' : 'jsx',
@@ -146,9 +149,9 @@ cnoreabbrev aG Ack
 cnoreabbrev Ag Ack
 cnoreabbrev AG Ack
 
-" u no me!
-augroup javascript_folding
-  au!
-  au FileType javascript setlocal foldmethod=syntax
-  au FileType javascript normal zR
-augroup END
+" javascript code folding
+" augroup javascript_folding
+"   au!
+"   au FileType javascript setlocal foldmethod=syntax
+"   au FileType javascript.jsx normal zR
+" augroup END
