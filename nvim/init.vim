@@ -1,69 +1,27 @@
-" muh plugins
-call plug#begin('~/.local/share/nvim/plugged')
-
-Plug 'bling/vim-airline'
-Plug 'ctrlpvim/ctrlp.vim'
-
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-
-Plug 'w0rp/ale'
-Plug 'mileszs/ack.vim'
-Plug 'vim-scripts/matchit.zip'
-Plug 'godlygeek/tabular'
-Plug 'tpope/vim-surround'
-Plug 'Raimondi/delimitMate'
-Plug 'mattn/emmet-vim'
-
-Plug 'altercation/vim-colors-solarized'
-Plug 'chriskempson/base16-vim'
-
-Plug 'pangloss/vim-javascript'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'heavenshell/vim-jsdoc'
-Plug 'mxw/vim-jsx'
-Plug 'Quramy/vim-js-pretty-template'
-Plug 'elzr/vim-json'
-
-Plug 'elixir-lang/vim-elixir'
-
-Plug 'jparise/vim-graphql'
-
-Plug 'fatih/vim-go'
-
-" snipmate and its dependencies
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-Plug 'grvcoelho/vim-javascript-snippets'
-
-Plug 'roxma/nvim-completion-manager'
-Plug 'autozimu/LanguageClient-neovim', {
-  \ 'branch': 'next',
-  \ 'do': 'bash install.sh',
-  \ }
-call plug#end()
-
 syntax on
-colorscheme base16-default-dark
 filetype plugin indent on
+
 set nu
-set expandtab
-set tabstop=2 shiftwidth=2 softtabstop=2
+set relativenumber
+set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 set autoindent
-
-set directory=~/.local/share/nvim/_tmp//
-set backupdir=~/.local/share/nvim/backup//
-set undodir=~/.local/share/nvim/_tmp
 set undofile
-
-" fix airline issues
+set directory=~/.local/share/nvim/_tmp
+set backupdir=~/.local/share/nvim/backup
+set undodir=~/.local/share/nvim/_tmp
 set laststatus=2
+set wildmenu
+set wildmode=full
+set lazyredraw
+set cursorline
+set winminwidth=5
+set winwidth=110
+set colorcolumn=80
 
 " ctrlP config
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-set wildignore+=*/node_modules/*,*/bower_components/*
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 " nerdcommenter
@@ -83,16 +41,11 @@ nnoremap <leader><space> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR
 nnoremap <leader>ev :vsp $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 imap <C-y>- <Plug>snipMateTrigger
-nnoremap <leader>e :tabn<cr>
-nnoremap <leader>E :tabp<cr>
+nnoremap <leader>r :tabn<cr>
+nnoremap <leader>R :tabp<cr>
 nnoremap <leader>> 20<C-w>><cr>
 nnoremap <leader>< 20<C-w><<cr>
-
-set relativenumber
-
-" wildmenu
-set wildmenu
-set wildmode=full
+nnoremap <Leader>a :Ack!<Space>
 
 " automatically equalize splits when Vim is resized
 augroup on_resize
@@ -100,29 +53,25 @@ augroup on_resize
   autocmd VimResized * wincmd =
 augroup END
 
-" highlight current line
-set cursorline
-
-" no need to redraw during macros
-set lazyredraw
-
 " vim-jsx
 let g:jsx_ext_required = 0
 
 " ale
+" only lint when file is saved
 let g:ale_lint_on_text_changed = 'never'
+" dont lint on opening a file
 let g:ale_lint_on_enter = 0
+" disable html linting
 let g:ale_linters = {
   \   'html': [],
   \ }
 
-" fix highlight colors
-:hi Error ctermfg=0
-:hi ErrorMsg ctermfg=0
-
 " vim-javascript
+" flow syntax highlighting
 let g:javascript_plugin_flow = 1
 
+" emmet-vim
+" enable for jsx
 let g:user_emmet_settings = {
 \  'javascript.jsx' : {
 \      'extends' : 'jsx',
@@ -130,8 +79,6 @@ let g:user_emmet_settings = {
 \}
 
 " lsp plugin
-" let $LANGUAGECLIENT_DEBUG=1
-" let g:LanguageClient_loggingLevel='DEBUG'
 let g:LanguageClient_serverCommands = {
 \ 'javascript.jsx': ['flow-language-server', '--stdio'],
 \ }
@@ -144,14 +91,57 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " ack.vim config to use ag
 let g:ackprg = 'ag --vimgrep --smart-case'
-cnoreabbrev ag Ack
-cnoreabbrev aG Ack
-cnoreabbrev Ag Ack
-cnoreabbrev AG Ack
+cnoreabbrev ag Ack!
+cnoreabbrev aG Ack!
+cnoreabbrev Ag Ack!
+cnoreabbrev AG Ack!
 
-" javascript code folding
-" augroup javascript_folding
-"   au!
-"   au FileType javascript setlocal foldmethod=syntax
-"   au FileType javascript.jsx normal zR
-" augroup END
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'chriskempson/base16-vim'
+
+Plug 'bling/vim-airline'
+Plug 'ctrlpvim/ctrlp.vim'
+
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+
+Plug 'w0rp/ale'
+Plug 'mileszs/ack.vim'
+Plug 'vim-scripts/matchit.zip'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-surround'
+Plug 'Raimondi/delimitMate'
+Plug 'mattn/emmet-vim'
+
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'elzr/vim-json'
+Plug 'jparise/vim-graphql'
+
+" scss
+Plug 'cakebaker/scss-syntax.vim'
+
+" autocomplete
+Plug 'Valloric/YouCompleteMe'
+
+Plug 'autozimu/LanguageClient-neovim', {
+  \ 'branch': 'next',
+  \ 'do': 'bash install.sh',
+  \ }
+
+" elixir
+Plug 'elixir-editors/vim-elixir'
+Plug 'slashmili/alchemist.vim'
+
+" typescript
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
+
+" vue
+Plug 'posva/vim-vue'
+
+Plug 'mhinz/vim-startify'
+call plug#end()
+
+colorscheme base16-default-dark
