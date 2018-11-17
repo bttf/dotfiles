@@ -14,12 +14,12 @@ set wildmenu
 set wildmode=full
 set lazyredraw
 set cursorline
-set winminwidth=5
-set winwidth=110
+set winminwidth=20
+set winwidth=80
 set colorcolumn=80
 
 " ctrlP config
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/__generated__/*     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -40,17 +40,31 @@ nnoremap <leader>p :set paste!<cr>
 nnoremap <leader><space> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 nnoremap <leader>ev :vsp $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-imap <C-y>- <Plug>snipMateTrigger
+" imap <C-y>- <Plug>snipMateTrigger
 nnoremap <leader>r :tabn<cr>
 nnoremap <leader>R :tabp<cr>
 nnoremap <leader>> 20<C-w>><cr>
 nnoremap <leader>< 20<C-w><<cr>
-nnoremap <Leader>a :Ack!<Space>
+nnoremap <leader>a :Ack!<Space>
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+nnoremap <leader>d <C-d>
+nnoremap <leader>u <C-u>
+nnoremap <Tab>d <C-d>
+nnoremap <Tab>u <C-u>
+
 
 " automatically equalize splits when Vim is resized
 augroup on_resize
   autocmd!
   autocmd VimResized * wincmd =
+augroup END
+
+augroup colorstuff
+  au BufRead,BufNewFile,WinEnter,TabEnter $HOME/Development/lattice/lattice/apps/weaver/* colorscheme desert
+  au BufRead,BufNewFile,WinEnter,TabEnter $HOME/Development/lattice/lattice/apps/dazzle/* colorscheme murphy
 augroup END
 
 " vim-jsx
@@ -96,6 +110,10 @@ cnoreabbrev aG Ack!
 cnoreabbrev Ag Ack!
 cnoreabbrev AG Ack!
 
+" snippets config
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<C-y>-"
+
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'chriskempson/base16-vim'
 
@@ -137,11 +155,20 @@ Plug 'slashmili/alchemist.vim'
 " typescript
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
+Plug 'ianks/vim-tsx'
 
 " vue
 Plug 'posva/vim-vue'
 
 Plug 'mhinz/vim-startify'
+
+" snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+" git
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+
 call plug#end()
 
-colorscheme base16-default-dark
