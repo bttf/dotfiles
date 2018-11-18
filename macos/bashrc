@@ -1,14 +1,14 @@
-# ZSH_THEME="random"
-# ZSH_THEME="eastwood"
-# ZSH_THEME="jtriley"
-# ZSH_THEME="nanotech"
-ZSH_THEME="wezm+"
+#!/bin/bash
+
+export PS1="\[\033[38;5;70m\]\d\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;70m\]\t\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;248m\]\W\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;57m\]>\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+
+# macos; ls w/ color
+export CLICOLOR=1
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
-# alias city
 eval "$(hub alias -s)"
 alias tls="tmux list-session"
 alias t="tugboat"
@@ -20,17 +20,15 @@ alias gr="git rebase"
 alias gp="git pull"
 alias gb="git branch"
 alias gd="git diff"
+alias gdd="git diff -- . ':(exclude)*__generated__*'"
+alias gdc='git diff --cached'
+alias gdcc="git diff --cached -- . ':(exclude)*__generated__*'"    
 alias gl="git log"
 alias g="git"
 alias gpretty="git log --graph --decorate --oneline \$(git rev-list -g —all)"
 alias nombom='npm cache clear && bower cache clean && rm -rf node_modules bower_components && npm install && bower install'
-alias git-quiet-pull='git fetch; git stash; git rebase; git stash pop'
-alias gqp='git-quiet-pull'
-alias gdc='git diff --cached'
 alias br='git rev-parse --abbrev-ref HEAD'
-alias ls='ls --color=auto'
 alias ll='ls -l'
 alias l='less'
 alias vim='nvim'
-alias pbin="curl -F 'f:1=<-' ix.io"
-export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+alias pastebin="curl -F 'f:1=<-' ix.io"

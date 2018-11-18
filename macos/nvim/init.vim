@@ -18,6 +18,10 @@ set winminwidth=20
 set winwidth=80
 set colorcolumn=80
 
+if has("termguicolors")
+  set termguicolors
+endif
+
 " ctrlP config
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/__generated__/*     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
@@ -60,11 +64,6 @@ nnoremap <Tab>u <C-u>
 augroup on_resize
   autocmd!
   autocmd VimResized * wincmd =
-augroup END
-
-augroup colorstuff
-  au BufRead,BufNewFile,WinEnter,TabEnter $HOME/Development/lattice/lattice/apps/weaver/* colorscheme desert
-  au BufRead,BufNewFile,WinEnter,TabEnter $HOME/Development/lattice/lattice/apps/dazzle/* colorscheme murphy
 augroup END
 
 " vim-jsx
@@ -172,3 +171,4 @@ Plug 'tpope/vim-rhubarb'
 
 call plug#end()
 
+colorscheme base16-ia-dark
