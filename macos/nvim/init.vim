@@ -58,7 +58,7 @@ nnoremap <leader>d <C-d>
 nnoremap <leader>u <C-u>
 nnoremap <Tab>d <C-d>
 nnoremap <Tab>u <C-u>
-
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 " automatically equalize splits when Vim is resized
 augroup on_resize
@@ -112,6 +112,9 @@ cnoreabbrev AG Ack!
 " snippets config
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<C-y>-"
+
+"youcompleteme disables filepath for jsx files by default
+let g:ycm_filepath_blacklist = {}
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'chriskempson/base16-vim'
