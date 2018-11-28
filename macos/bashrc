@@ -61,3 +61,5 @@ alias ll='ls -l'
 alias l='less'
 alias vim='nvim'
 alias pastebin="curl -F 'f:1=<-' ix.io"
+alias ..="cd .."
+alias ...="cd ../../.."
