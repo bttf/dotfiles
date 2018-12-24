@@ -113,8 +113,17 @@ cnoreabbrev AG Ack!
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<C-y>-"
 
-"youcompleteme disables filepath for jsx files by default
+" youcompleteme disables filepath for jsx files by default
 let g:ycm_filepath_blacklist = {}
+
+" vim-illuminate config
+let g:Illuminate_delay = 0
+
+" smooth scroll
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'chriskempson/base16-vim'
@@ -171,6 +180,19 @@ Plug 'honza/vim-snippets'
 " git
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
+
+" color hex codes
+Plug 'lilydjwg/colorizer'
+
+" color nested blocks
+" Note: doesn't work with vim-javascript
+" Plug 'luochen1990/rainbow'
+
+" highlight word instances on hover
+Plug 'RRethy/vim-illuminate'
+
+" smooth scroll
+Plug 'terryma/vim-smooth-scroll'
 
 call plug#end()
 
