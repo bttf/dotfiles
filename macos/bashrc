@@ -38,6 +38,11 @@ export CLICOLOR=1
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
+# function to help find call sites of a graphql field or connection
+function find-gql-field() {
+  ag -r "(?:graphql|fragment)[\r\n\sa-zA-Z0-9\(\)\$\:\[\]\{\}\@\`\!\_\"]*$1[\s]*\("
+}
+
 eval "$(hub alias -s)"
 alias tls="tmux list-session"
 alias t="tugboat"
