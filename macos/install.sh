@@ -39,5 +39,8 @@ fi
 # install plugins
 nvim +PlugInstall +qall
 
+# configure git to use nvim
+git config --global core.editor "nvim"
+
 # tmux
 linkTo $DIR/tmux/tmux.conf $HOME/.tmux.conf
