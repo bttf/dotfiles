@@ -75,6 +75,7 @@ let g:ale_lint_on_text_changed = 'never'
 " dont lint on opening a file
 let g:ale_lint_on_enter = 0
 " disable html linting
+let g:ale_linters_ignore = ['tsserver', 'tslint']
 let g:ale_linters = {
   \   'html': [],
   \ }
@@ -136,7 +137,7 @@ Plug 'scrooloose/nerdtree'
 
 Plug 'w0rp/ale'
 Plug 'mileszs/ack.vim'
-Plug 'vim-scripts/matchit.zip'
+" Plug 'vim-scripts/matchit.zip'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
