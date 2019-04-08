@@ -1,0 +1,71 @@
+#!/bin/bash
+
+# git branch prompt for PS1
+txtred="$(tput setaf 1 2>/dev/null || echo '\e[0;31m')"  # Red
+
+find_git_branch() {
+  # Based on: http://stackoverflow.com/a/13003854/170413
+  local branch
+  if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
+    if [[ "$branch" == "HEAD" ]]; then
+      branch='detached*'
+    fi
+    git_branch=" ($branch)"
+  else
+    git_branch=""
+  fi
+}
+
+# This makes things slow in large repos
+# TODO: check back on git-aware-prompt project to see if any progress has been made
+# https://github.com/jimeh/git-aware-prompt/issues/9
+# find_git_dirty() {
+#   local status=$(git status --porcelain 2> /dev/null)
+#   if [[ "$status" != "" ]]; then
+#     git_dirty='*'
+#   else
+#     git_dirty=''
+#   fi
+# }
+# PROMPT_COMMAND="find_git_branch; find_git_dirty; $PROMPT_COMMAND"
+PROMPT_COMMAND="find_git_branch; $PROMPT_COMMAND"
+export PS1="\[\033[38;5;70m\]\d\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;70m\]\t\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;248m\]\W\[$(tput sgr0)\]\[\033[38;5;159m\]\$git_branch\[\$txtred\]\$git_dirty \[$(tput sgr0)\]\[\033[38;5;57m\]>\[$(tput sgr0)\]\[\033[38;5;15m\] "
+
+# macos; ls w/ color
+export CLICOLOR=1
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+# function to help find call sites of a graphql field or connection
+function find-gql-field() {
+  ag -r "(?:graphql|fragment)[\r\n\sa-zA-Z0-9\(\)\$\:\[\]\{\}\@\`\!\_\"]*$1[\s]*\("
+}
+
+eval "$(hub alias -s)"
+alias tls="tmux list-session"
+alias t="tugboat"
+alias ta="tmux a -t"
+alias gc="git checkout"
+alias gs="git status"
+alias gf="git fetch"
+alias gr="git rebase"
+alias gp="git pull"
+alias gpp="git push origin HEAD"
+alias gb="git branch"
+alias gd="git diff"
+alias gdd="git diff -- . ':(exclude)*__generated__*'"
+alias gdc='git diff --cached'
+alias gdcc="git diff --cached -- . ':(exclude)*__generated__*'"
+alias gl="git log"
+alias g="git"
+alias gpretty="git log --graph --decorate --oneline \$(git rev-list -g —all)"
+alias nombom='npm cache clear && bower cache clean && rm -rf node_modules bower_components && npm install && bower install'
+alias br='git rev-parse --abbrev-ref HEAD'
+alias ll='ls -l'
+alias l='less'
+alias vim='nvim'
+alias pastebin="curl -F 'f:1=<-' ix.io"
+alias ..="cd .."
+alias ...="cd ../../.."

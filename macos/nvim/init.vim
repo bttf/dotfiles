@@ -18,6 +18,10 @@ set winminwidth=20
 set winwidth=80
 set colorcolumn=80
 
+if has("termguicolors")
+  set termguicolors
+endif
+
 " ctrlP config
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/__generated__/*     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
@@ -54,17 +58,12 @@ nnoremap <leader>d <C-d>
 nnoremap <leader>u <C-u>
 nnoremap <Tab>d <C-d>
 nnoremap <Tab>u <C-u>
-
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 " automatically equalize splits when Vim is resized
 augroup on_resize
   autocmd!
   autocmd VimResized * wincmd =
-augroup END
-
-augroup colorstuff
-  au BufRead,BufNewFile,WinEnter,TabEnter $HOME/Development/lattice/lattice/apps/weaver/* colorscheme desert
-  au BufRead,BufNewFile,WinEnter,TabEnter $HOME/Development/lattice/lattice/apps/dazzle/* colorscheme murphy
 augroup END
 
 " vim-jsx
@@ -76,6 +75,7 @@ let g:ale_lint_on_text_changed = 'never'
 " dont lint on opening a file
 let g:ale_lint_on_enter = 0
 " disable html linting
+let g:ale_linters_ignore = ['tsserver', 'tslint']
 let g:ale_linters = {
   \   'html': [],
   \ }
@@ -114,6 +114,18 @@ cnoreabbrev AG Ack!
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<C-y>-"
 
+" youcompleteme disables filepath for jsx files by default
+let g:ycm_filepath_blacklist = {}
+
+" vim-illuminate config
+let g:Illuminate_delay = 0
+
+" smooth scroll
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'chriskempson/base16-vim'
 
@@ -125,7 +137,7 @@ Plug 'scrooloose/nerdtree'
 
 Plug 'w0rp/ale'
 Plug 'mileszs/ack.vim'
-Plug 'vim-scripts/matchit.zip'
+" Plug 'vim-scripts/matchit.zip'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
@@ -170,5 +182,19 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
+" color hex codes
+Plug 'lilydjwg/colorizer'
+
+" color nested blocks
+" Note: doesn't work with vim-javascript
+" Plug 'luochen1990/rainbow'
+
+" highlight word instances on hover
+Plug 'RRethy/vim-illuminate'
+
+" smooth scroll
+Plug 'terryma/vim-smooth-scroll'
+
 call plug#end()
 
+colorscheme base16-ia-dark
