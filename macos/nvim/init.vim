@@ -58,7 +58,9 @@ nnoremap <leader>d <C-d>
 nnoremap <leader>u <C-u>
 nnoremap <Tab>d <C-d>
 nnoremap <Tab>u <C-u>
+nnoremap <silent> <leader>cp :let @+ = expand("%")<CR>
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+vnoremap <C-f> "hy:Ack! <C-r>h
 
 " automatically equalize splits when Vim is resized
 augroup on_resize
