@@ -136,6 +136,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'w0rp/ale'
 Plug 'mileszs/ack.vim'
