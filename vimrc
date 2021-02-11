@@ -101,13 +101,9 @@ let g:user_emmet_settings = {
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" ack.vim config to use ag
-" TODO Update this to use ripgrep
-let g:ackprg = 'ag --vimgrep --smart-case'
-cnoreabbrev ag Ack!
-cnoreabbrev aG Ack!
-cnoreabbrev Ag Ack!
-cnoreabbrev AG Ack!
+" ack.vim config to use rg
+let g:ackprg = 'rg --vimgrep --smart-case'
+cnoreabbrev rg Ack!
 
 " youcompleteme disables filepath for jsx files by default
 let g:ycm_filepath_blacklist = {}
