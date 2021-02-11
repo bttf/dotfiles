@@ -6,9 +6,9 @@ set relativenumber
 set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 set autoindent
 set undofile
-set directory=~/.local/share/nvim/_tmp
-set backupdir=~/.local/share/nvim/backup
-set undodir=~/.local/share/nvim/_tmp
+set directory=~/.vim/_tmp
+set backupdir=~/.vim/backup
+set undodir=~/.vim/_tmp
 set laststatus=2
 set wildmenu
 set wildmode=full
@@ -82,10 +82,6 @@ let g:ale_linters = {
   \   'html': [],
   \ }
 
-" vim-javascript
-" flow syntax highlighting
-let g:javascript_plugin_flow = 1
-
 " emmet-vim
 " enable for jsx
 let g:user_emmet_settings = {
@@ -95,26 +91,23 @@ let g:user_emmet_settings = {
 \}
 
 " lsp plugin
-let g:LanguageClient_serverCommands = {
-\ 'javascript.jsx': ['flow-language-server', '--stdio'],
-\ }
-let g:LanguageClient_autoStart=1
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+" let g:LanguageClient_serverCommands = {
+" \ 'javascript.jsx': ['flow-language-server', '--stdio'],
+" \ }
+" let g:LanguageClient_autoStart=1
+" nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 
 " nvim-completion-manager
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " ack.vim config to use ag
+" TODO Update this to use ripgrep
 let g:ackprg = 'ag --vimgrep --smart-case'
 cnoreabbrev ag Ack!
 cnoreabbrev aG Ack!
 cnoreabbrev Ag Ack!
 cnoreabbrev AG Ack!
-
-" snippets config
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<C-y>-"
 
 " youcompleteme disables filepath for jsx files by default
 let g:ycm_filepath_blacklist = {}
@@ -128,7 +121,7 @@ noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 Plug 'chriskempson/base16-vim'
 
 Plug 'bling/vim-airline'
@@ -140,7 +133,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'w0rp/ale'
 Plug 'mileszs/ack.vim'
-" Plug 'vim-scripts/matchit.zip'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
@@ -152,9 +144,6 @@ Plug 'Quramy/vim-js-pretty-template'
 Plug 'elzr/vim-json'
 Plug 'jparise/vim-graphql'
 
-" scss
-Plug 'cakebaker/scss-syntax.vim'
-
 " autocomplete
 Plug 'Valloric/YouCompleteMe'
 
@@ -163,17 +152,10 @@ Plug 'autozimu/LanguageClient-neovim', {
   \ 'do': 'bash install.sh',
   \ }
 
-" elixir
-Plug 'elixir-editors/vim-elixir'
-Plug 'slashmili/alchemist.vim'
-
 " typescript
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'ianks/vim-tsx'
-
-" vue
-Plug 'posva/vim-vue'
 
 Plug 'mhinz/vim-startify'
 
@@ -188,16 +170,11 @@ Plug 'tpope/vim-rhubarb'
 " color hex codes
 Plug 'lilydjwg/colorizer'
 
-" color nested blocks
-" Note: doesn't work with vim-javascript
-" Plug 'luochen1990/rainbow'
-
 " highlight word instances on hover
 Plug 'RRethy/vim-illuminate'
 
 " smooth scroll
 Plug 'terryma/vim-smooth-scroll'
-
 call plug#end()
 
 colorscheme base16-ia-dark

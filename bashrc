@@ -16,36 +16,20 @@ find_git_branch() {
   fi
 }
 
-# This makes things slow in large repos
-# TODO: check back on git-aware-prompt project to see if any progress has been made
-# https://github.com/jimeh/git-aware-prompt/issues/9
-# find_git_dirty() {
-#   local status=$(git status --porcelain 2> /dev/null)
-#   if [[ "$status" != "" ]]; then
-#     git_dirty='*'
-#   else
-#     git_dirty=''
-#   fi
-# }
-# PROMPT_COMMAND="find_git_branch; find_git_dirty; $PROMPT_COMMAND"
 PROMPT_COMMAND="find_git_branch; $PROMPT_COMMAND"
 export PS1="\[\033[38;5;70m\]\d\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;70m\]\t\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;248m\]\W\[$(tput sgr0)\]\[\033[38;5;159m\]\$git_branch\[\$txtred\]\$git_dirty \[$(tput sgr0)\]\[\033[38;5;57m\]>\[$(tput sgr0)\]\[\033[38;5;15m\] "
 
-# macos; ls w/ color
-export CLICOLOR=1
+# For MacOS; ls w/ color
+# export CLICOLOR=1
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+# For nvm
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
-# function to help find call sites of a graphql field or connection
-function find-gql-field() {
-  ag -r "(?:graphql|fragment)[\r\n\sa-zA-Z0-9\(\)\$\:\[\]\{\}\@\`\!\_\"]*$1[\s]*\("
-}
+# For hub
+# eval "$(hub alias -s)"
 
-eval "$(hub alias -s)"
 alias tls="tmux list-session"
-alias t="tugboat"
 alias ta="tmux a -t"
 alias gc="git checkout"
 alias gs="git status"
@@ -60,12 +44,8 @@ alias gdc='git diff --cached'
 alias gdcc="git diff --cached -- . ':(exclude)*__generated__*'"
 alias gl="git log"
 alias g="git"
-alias gpretty="git log --graph --decorate --oneline \$(git rev-list -g —all)"
-alias nombom='npm cache clear && bower cache clean && rm -rf node_modules bower_components && npm install && bower install'
-alias br='git rev-parse --abbrev-ref HEAD'
+alias grw="git reset --soft HEAD~1"
 alias ll='ls -l'
 alias l='less'
-alias vim='nvim'
-alias pastebin="curl -F 'f:1=<-' ix.io"
 alias ..="cd .."
 alias ...="cd ../../.."
