@@ -45,6 +45,7 @@ alias gdcc="git diff --cached -- . ':(exclude)*__generated__*'"
 alias gl="git log"
 alias g="git"
 alias grw="git reset --soft HEAD~1"
+alias gppf="gpp --force-with-lease"
 alias ll='ls -l'
 alias l='less'
 alias ..="cd .."
