@@ -175,6 +175,9 @@ Plug 'RRethy/vim-illuminate'
 
 " smooth scroll
 Plug 'terryma/vim-smooth-scroll'
+
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
 call plug#end()
 
 colorscheme base16-ia-dark
