@@ -8,6 +8,7 @@ set nu
 set relativenumber
 set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 set autoindent
+set ruler
 
 " Keep persistent undo history
 set undofile
