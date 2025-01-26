@@ -1,0 +1,4 @@
+{
+	"inlayHint.enable": false,
+	"typescript.preferences.importModuleSpecifier": "non-relative"
+}

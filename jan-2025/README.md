@@ -1,0 +1,2 @@
+-   put coc-settings.json in ~/.vim
+-   mv ./vimcolors_sierra.vim to ~/.vim/colors/sierra.vim
